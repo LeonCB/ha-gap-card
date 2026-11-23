@@ -3,11 +3,10 @@
  *
  *   type: custom:gap-card
  *   height: 12        # number = px, or any CSS length ("1rem")
- *   width: 8          # optional, same rules
  *
  * Drop-in replacement for the gap-card that ships with layout-card.
  */
-const CARD_VERSION = "1.0.0";
+const CARD_VERSION = "2026.11.1";
 
 const toCssLength = (value) => {
   if (value === undefined || value === null || value === "") return undefined;
@@ -31,11 +30,9 @@ class GapCard extends HTMLElement {
   _render() {
     if (!this._config) return;
     const height = toCssLength(this._config.height) ?? "8px";
-    const width = toCssLength(this._config.width);
     this.style.display = "block";
     this.style.height = height;
     this.style.minHeight = height;
-    this.style.width = width ?? "";
     this.style.background = "none";
     this.style.border = "none";
     this.style.boxShadow = "none";

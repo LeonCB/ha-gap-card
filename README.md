@@ -1,13 +1,33 @@
 # Gap Card
 
-A tiny invisible spacer card for Home Assistant dashboards. Drop-in replacement for the
-`custom:gap-card` that ships with layout-card, so you can drop layout-card when you only
-needed the spacer.
+![version](https://img.shields.io/github/v/release/LeonCB/ha-gap-card?label=version)
+![Home Assistant](https://img.shields.io/badge/Home%20Assistant-2024.11%2B-41BDF5?logo=homeassistant&logoColor=white)
+![license](https://img.shields.io/badge/license-MIT-green)
 
-## Install
+[![Open your Home Assistant instance and open this repository in the Marketplace.](https://my.home-assistant.io/badges/marketplace_repository.svg)](https://my.home-assistant.io/redirect/marketplace_repository/?owner=LeonCB&repository=ha-gap-card&category=plugin)
 
-Marketplace (HACS): add `LeonCB/ha-gap-card` as a custom repository, category **Dashboard / plugin**,
-then download it. The dashboard resource is registered automatically.
+A tiny, invisible spacer card for Home Assistant dashboards.
+Drop-in replacement for the `custom:gap-card` that ships with layout-card, so you can drop
+layout-card if the spacer was all you used it for.
+
+## Requirements
+
+Home Assistant 2024.11 or newer (sections view with `grid_options`). Installing through the Marketplace requires a Home Assistant version that includes it (2026.11 or newer); on older versions, use HACS or the manual install.
+
+## Installation
+
+### Marketplace (recommended)
+
+1. Click the button above, or add `LeonCB/ha-gap-card` as a custom repository with category **Dashboard**.
+2. Download **Gap Card** and hard-refresh your browser.
+
+The resource is added automatically.
+
+### Manual
+
+1. Download the latest release and copy `gap-card.js` to `config/www/`.
+2. Add a JavaScript module resource at `/local/gap-card.js` under Settings → Dashboards → Resources.
+3. Hard-refresh your browser.
 
 ## Usage
 
@@ -16,11 +36,18 @@ type: custom:gap-card
 height: 12
 ```
 
-| Option   | Default | Description                                      |
-|----------|---------|--------------------------------------------------|
-| `height` | `8`     | Number = pixels, or any CSS length (`1rem`)      |
-| `width`  | -       | Optional width, same rules as `height`           |
+| Option   | Default | Description                                    |
+|----------|---------|------------------------------------------------|
+| `height` | `8`     | A number is pixels, or any CSS length (`1rem`) |
 
-The card has no background, border or shadow and ignores pointer events.
+The card has no background, border or shadow and ignores clicks.
 
-If both layout-card and this card are loaded, whichever loads first provides `custom:gap-card`.
+If layout-card and this card are both loaded, whichever loads first provides `custom:gap-card`.
+
+## Versioning
+
+`year.month.number`, for example `2026.11.1` is the first release of November 2026.
+
+## License
+
+[MIT License](LICENSE)
