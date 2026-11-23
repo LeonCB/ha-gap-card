@@ -44,10 +44,6 @@ The card has no background, border or shadow and ignores clicks.
 
 If layout-card and this card are both loaded, whichever loads first provides `custom:gap-card`.
 
-## Versioning
-
-`year.month.number`, for example `2026.11.1` is the first release of November 2026.
-
 ## License
 
 [MIT License](LICENSE)
