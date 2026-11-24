@@ -36,9 +36,24 @@ type: custom:gap-card
 height: 12
 ```
 
-| Option   | Default | Description                                    |
-|----------|---------|------------------------------------------------|
-| `height` | `8`     | A number is pixels, or any CSS length (`1rem`) |
+| Option   | Default                     | Description                                    |
+|----------|-----------------------------|------------------------------------------------|
+| `height` | `var(--gap-height, 8px)`    | A number is pixels, or any CSS length (`1rem`) |
+
+### Theme variable
+
+Leave out `height` to size every gap from your theme with `--gap-height`:
+
+```yaml
+My Theme:
+  gap-height: "12px"
+```
+
+```yaml
+type: custom:gap-card
+```
+
+An explicit `height` on a card always wins over the theme variable. Without either, the gap is 8px.
 
 The card has no background, border or shadow and ignores clicks.
 

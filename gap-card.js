@@ -2,11 +2,14 @@
  * Gap Card - an invisible spacer card for Home Assistant dashboards.
  *
  *   type: custom:gap-card
- *   height: 12        # number = px, or any CSS length ("1rem")
+ *   height: 12        # optional: number = px, or any CSS length ("1rem")
+ *
+ * Without `height` the card uses the CSS variable --gap-height (set it in your
+ * theme), falling back to 8px.
  *
  * Drop-in replacement for the gap-card that ships with layout-card.
  */
-const CARD_VERSION = "2026.11.1";
+const CARD_VERSION = "2026.11.2";
 
 const toCssLength = (value) => {
   if (value === undefined || value === null || value === "") return undefined;
@@ -29,7 +32,7 @@ class GapCard extends HTMLElement {
 
   _render() {
     if (!this._config) return;
-    const height = toCssLength(this._config.height) ?? "8px";
+    const height = toCssLength(this._config.height) ?? "var(--gap-height, 8px)";
     this.style.display = "block";
     this.style.height = height;
     this.style.minHeight = height;
@@ -40,7 +43,7 @@ class GapCard extends HTMLElement {
   }
 
   getCardSize() {
-    const px = parseFloat(toCssLength(this._config?.height) ?? "8");
+    const px = this.offsetHeight || parseFloat(toCssLength(this._config?.height)) || 8;
     return Math.max(0, Math.round(px / 50));
   }
 
